@@ -1,13 +1,7 @@
 <script setup>
-
+import Navbar from '../src/components/Navbar/navbar.vue'
 </script>
-
 <template>
-  
-  <h1>Bem vindo ao desafio copa</h1>
-  
+  <Navbar/>
+ <router-view></router-view>
 </template>
-
-<style scoped>
-
-</style>
