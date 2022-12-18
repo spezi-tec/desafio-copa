@@ -1,21 +1,26 @@
 <script>
 export default {
+    props: {
+        isOpen: Boolean
+    },
     created() {
         document.addEventListener('keyup', (e) => {
             if (e.key === "Escape") {
-                this.isOpen = false
+                this.handleClose()
+
             }
-        })
+        })   
     },
-    data() {
-        return {
-            isOpen: true
+    methods: {
+        handleClose() {
+            this.$emit('close')
         }
-    }
+    },
+    emits: ['close']
 }
 </script>
 <template>
-    <div class="modal fade" v-if="isOpen">
+    <div class="modal" id="backdrop" v-if="isOpen">
         <div class="modal-container">
             <slot></slot>
         </div>
@@ -33,7 +38,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    z-index: 1;
 
 }
 </style>

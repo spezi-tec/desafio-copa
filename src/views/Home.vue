@@ -1,16 +1,57 @@
 <script>
-import newTeamModalVue from '../components/NewTeamModal.vue';
-
+import Modal from '../components/Modal.vue';
+import ScoreBoard from '../components/ScoreBoard.vue';
+import db from '../../db/teams'
 export default {
     components: {
-        newTeamModalVue
+        Modal,
+        ScoreBoard
     },
     data() {
         return {
-            newTeamModal: true
+            handleModalOpen: false,
+            teams: [],
+            form: {
+                img_team: "",
+                team_name: "",
+                player_num: "",
+                defense_num: "",
+                attack_num: "",
+                half_num: ""
+
+
+            }
+
         }
+    },
+    methods: {
+        handleModalClose() {
+            this.handleModalOpen = false
+        },
+        submitTeam() {
+            console.log(this.form)
+
+            const obj = {
+                pais: this.form.team_name,
+                numero_jogadores: this.form.player_num,
+                partidas_jogadas: 102,
+                vitorias: 53,
+                derrotas: 22,
+                img_path: `https://cdn-icons-png.flaticon.com/512/5921/${this.form.img_team}`,
+                proxima_partida: "01/01/2023"
+            }
+            this.teams.push(obj)
+        },
+        handleTeamImageSubmit(e) {
+            this.form.img_team = e.target.files[0].name
+        }
+    },
+    created() {
+        this.teams = db
     }
+
 }
+
 
 
 </script>
@@ -19,44 +60,57 @@ export default {
     <div class="main-container">
         <img src="../assets/banner.png">
 
-        <newTeamModalVue v-if="newTeamModal">
+        <Modal :isOpen="handleModalOpen" @close="handleModalClose">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-close" @click="newTeamModal = false">x</div>
+                    <div class="modal-close" @click="handleModalOpen = false">x</div>
                     <div class="modal-body">
                         <label>
                             <img src="../assets/upload-banner.png" />
-                            <input type="file" id="upload" hidden accept=".jpg, .png" />
+                            <input type="file" id="upload" hidden accept=".jpg, .png"
+                                :onChange="handleTeamImageSubmit" />
                         </label>
                         <div class="form-control">
                             <label for="nome-time">Nome do time</label>
-                            <input type="text" id="nome-time">
+                            <input type="text" id="nome-time" v-model="form.team_name">
                         </div>
                         <div class="form-group">
                             <div>
                                 <label for="jogadores-defesa">numero de jogadores</label>
-                                <input type="text" id="numero-jogadores">
+                                <input type="text" id="numero-jogadores" v-model="form.player_num">
                             </div>
                             <div>
                                 <label for="jogadores-defesa">numero de jogadores na defesa</label>
-                                <input type="text" id="numero-defesah">
+                                <input type="text" id="numero-defesa" v-model="form.defense_num">
                             </div>
                             <div>
                                 <label for="jogadores-defesa">numero de jogadores no ataque</label>
-                                <input type="text" id="nome-time">
+                                <input type="text" id="nome-time" v-model="form.attack_num">
                             </div>
                             <div>
                                 <label for="jogadores-defesa">numero de jogadores no meio de campo</label>
-                                <input type="text" id="nome-time">
+                                <input type="text" id="nome-time" v-model="form.half_num">
                             </div>
 
                         </div>
-                        <button>Salvar</button>
+                        <button @click="submitTeam">Salvar</button>
                     </div>
                 </div>
             </div>
-        </newTeamModalVue>
+        </Modal>
+        <div class="section-header">
+            <h3>MEUS TIMES</h3>
+            <button @click="handleModalOpen = true">
+                <img src="../assets/plus-btn.png" />
+                NOVO TIME
+            </button>
+        </div>
 
+        <div v-for="team in teams">
+            <ScoreBoard :next_match="team.proxima_partida" :players_num="team.numero_jogadores"
+                :games_played="team.partidas_jogadas" :img="team.img_path" :victories="team.vitorias"
+                :defeats="team.derrotas" :country="team.pais" />
+        </div>
     </div>
 
 </template>
@@ -74,7 +128,7 @@ export default {
     background-color: #1C212D;
     border-radius: 6px;
     position: relative;
-    z-index: 1;
+    z-index: 1000;
     animation: modalEffect 500ms;
 }
 
@@ -133,10 +187,31 @@ input {
     height: 35px;
     margin-top: 7px;
     border-radius: 4px;
+    color: rgba(255, 255, 255, 0.2);
 }
 
 label {
     font-size: 0.8rem;
+}
+
+.section-header {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.section-header button {
+    background-color: #F5760F;
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+
 }
 
 @keyframes modalEffect {
