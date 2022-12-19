@@ -2,6 +2,10 @@
 import Navbar from '../src/components/Navbar/navbar.vue'
 </script>
 <template>
-  <Navbar/>
- <router-view></router-view>
+  <Navbar />
+  <div class="main-container">
+    <img src="./assets/banner.png" />
+    <router-view></router-view>
+  </div>
+
 </template>

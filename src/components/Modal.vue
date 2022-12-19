@@ -41,4 +41,16 @@ export default {
     z-index: 1;
 
 }
+.modal-container {
+    animation: modalEffect 500ms ;
+}
+@keyframes modalEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 </style>

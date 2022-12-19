@@ -7,3 +7,8 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
+
+.main-container {
+    width: 1193px;
+    margin: 0 auto;
+}

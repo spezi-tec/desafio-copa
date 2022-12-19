@@ -12,14 +12,12 @@ export default {
             handleModalOpen: false,
             teams: [],
             form: {
-                img_team: "",
-                team_name: "",
-                player_num: "",
-                defense_num: "",
-                attack_num: "",
-                half_num: ""
-
-
+                img_team: null,
+                team_name: null,
+                player_num: null,
+                defense_num: null,
+                attack_num: null,
+                half_num: null
             }
 
         }
@@ -44,6 +42,9 @@ export default {
         },
         handleTeamImageSubmit(e) {
             this.form.img_team = e.target.files[0].name
+            const reader = new FileReader()
+            const files = reader.readAsDataURL(e.target.files[0])
+            console.log(files)
         }
     },
     created() {
@@ -58,7 +59,6 @@ export default {
 <template>
 
     <div class="main-container">
-        <img src="../assets/banner.png">
 
         <Modal :isOpen="handleModalOpen" @close="handleModalClose">
             <div class="modal-content">
@@ -76,19 +76,19 @@ export default {
                         </div>
                         <div class="form-group">
                             <div>
-                                <label for="jogadores-defesa">numero de jogadores</label>
+                                <label for="jogadores-defesa">Número de jogadores</label>
                                 <input type="text" id="numero-jogadores" v-model="form.player_num">
                             </div>
                             <div>
-                                <label for="jogadores-defesa">numero de jogadores na defesa</label>
+                                <label for="jogadores-defesa">Número de jogadores na defesa</label>
                                 <input type="text" id="numero-defesa" v-model="form.defense_num">
                             </div>
                             <div>
-                                <label for="jogadores-defesa">numero de jogadores no ataque</label>
+                                <label for="jogadores-defesa">Número de jogadores no ataque</label>
                                 <input type="text" id="nome-time" v-model="form.attack_num">
                             </div>
                             <div>
-                                <label for="jogadores-defesa">numero de jogadores no meio de campo</label>
+                                <label for="jogadores-defesa">Número de jogadores no meio de campo</label>
                                 <input type="text" id="nome-time" v-model="form.half_num">
                             </div>
 
@@ -116,12 +116,6 @@ export default {
 </template>
 
 <style scoped>
-.main-container {
-    width: 1193px;
-    margin: 0 auto;
-
-}
-
 .modal-content {
     width: 592px;
     height: 588px;
@@ -129,7 +123,6 @@ export default {
     border-radius: 6px;
     position: relative;
     z-index: 1000;
-    animation: modalEffect 500ms;
 }
 
 .modal-close {
@@ -170,6 +163,10 @@ export default {
     font-weight: 800;
     margin-top: 30px;
 }
+.modal-body button:hover {
+    background-color: #FFC300;
+    transition: ease-in .5s;
+}
 
 .form-group {
     display: grid;
@@ -191,7 +188,7 @@ input {
 }
 
 label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .section-header {
@@ -214,13 +211,8 @@ label {
 
 }
 
-@keyframes modalEffect {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.section-header button:hover {
+    background-color: #FFC300;
+    transition: ease-in .5s;
 }
 </style>

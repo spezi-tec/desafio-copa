@@ -5,17 +5,18 @@
         <p class="logo">MEU<span>TIME</span></p>
 
         <ul>
+            <router-link to="/partidas">
+                <li>PARTIDAS</li>
+            </router-link>
+       
+            <router-link to="/">
+                <li>MEUS TIMES</li>
+            </router-link>
             <a href="">
-                <li>Partidas</li>
+                <li>COMUNIDADE</li>
             </a>
             <a href="">
-                <li>Meus times</li>
-            </a>
-            <a href="">
-                <li>Comunidade</li>
-            </a>
-            <a href="">
-                <li>Novidades</li>
+                <li>NOVIDADES</li>
             </a>
         </ul>
 
@@ -96,4 +97,11 @@
     border: 1px solid rgba(248, 248, 248, 0.5);
     transform: rotate(90deg);
 }
+a.router-link-active  {
+    color: #F5760F;
+}
+a.router-link-exact-active {
+    color: #F5760F;
+}
+
 </style>
