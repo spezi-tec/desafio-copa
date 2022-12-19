@@ -1,0 +1,3 @@
+[submodule "api_desafio_copa"]
+	path = api_desafio_copa
+	url = /api_desafio_copa
