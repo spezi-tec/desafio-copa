@@ -1,0 +1,6 @@
+[submodule "api_desafio_copa"]
+	path = api_desafio_copa
+	url = https://github.com/pedroltdias/api_desafio_copa.git
+[submodule "front_desafio_copa"]
+	path = front_desafio_copa
+	url = https://github.com/pedroltdias/front_desafio_copa.git

@@ -1,22 +1,15 @@
-<div align="center">
-  <img src="https://avatars.githubusercontent.com/u/72630796?s=400&u=b27ec815e5f5c2a18b7d08bc4b6bba0e900b249c&v=4" width="100" height="100">
+# Copa - Gerenciador de Jogadores, Partidas e Times
 
-  # Desafio COPA
-</div>
+### Back-End
+Tecnologias Utilizadas:
+- Ruby 3.0.0
+- Ruby on Rails 7.0.4
+- SQLite
 
-O desafio é bem simples. Para participar, basta criar um fork deste repositório e quando finalizar o desenvolvimento, abrir um merge request que iremos avaliar.
+Esta api é responsável por fazer a comunicação com o banco de dados. Optei por utilizar o SQLite devido a facilidade do uso, por se tratar apenas de um arquivo. O código consiste em três models: Player(Jogador), Team(Time) e Match(Partida). Todas as models possuem suas controllers, responsáveis por fazer o crud de cada classe. Cada método possui sua rota.
 
-## Referências
+### Front-End
+Tecnologias Utilizadas: 
+- Vue 3.12.13
 
-Segue abaixo link com as referências do teste ser implementado.
-
-<a href="https://www.figma.com/file/8W6h2rmhyrfsLEgfX7Axux/Teste-DEV---Spezi-Tecnologia?node-id=1%3A14" target="_blank">Design</a>
-
-<details>
-  <summary>Clique aqui para ver detalhes do desafio</summary>
-
-  ![Teste Prático](assets/Teste_de_Pratico.png)
-</details>
-
-## Importante
-Se surgir qualquer dúvida durante o desenvolvimento, não hesite em perguntar! nosso time vai estar pronto a lhe auxiliar 😊
+O front-end da aplicação é feito em vuejs. Utilizei a biblioteca de componentes Bulma, afim de padronizar e deixar o código mais intuitivo.
