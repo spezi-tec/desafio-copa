@@ -1,42 +1,59 @@
 <template>
 <div class="container">
-  <div class="row-1-container">
-    <img src="../../assets/Brasil.png" alt="">
-    <ul>
-      <li>
-        <ul>
-          <li class="celOne">BRASIL</li>
-          <li>NÚMERO DE JOGADORES</li>
-          <li>PARTIDAS JOGADAS</li>
-          <li>VITÓRIAS</li>
-          <li>DERROTAS</li>
-          <li>AÇOES</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <div class="row-2-container">
-    <ul>
-      <li>
-        <ul>
-          <li class="celTwo">PRÓXIMA PARTIDA: 22 DEC 2022</li>
-          <li>24</li>
-          <li>102</li>
-          <li>88</li>
-          <li>14</li>
-          <li id="">...</li>
-        </ul>
-      </li>
-    </ul>
+  <div class="container-table" v-for="time in times" :key="time.id">
+    <div class="row-1-container">
+      <ul>
+        <li>
+          <ul>
+            <img src="../../assets/Brasil.png" alt="">
+            <li class="celOne">{{ time.name }}</li>
+            <li>NÚMERO DE JOGADORES</li>
+            <li>PARTIDAS JOGADAS</li>
+            <li>VITÓRIAS</li>
+            <li>DERROTAS</li>
+            <li>AÇOES</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="row-2-container">
+      <ul>
+        <li>
+          <ul v-for="(matchs, index) in time.match" :key="index">
+            <li class="celTwo">PRÓXIMA PARTIDA: 22 DEC 2022</li>
+            <li>{{ time.players }}</li>
+            <li>{{ matchs.matchs }}</li>
+            <li>{{ matchs.wins }}</li>
+            <li>{{ matchs.defeats }}</li>
+            <li id="">...</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
+  name: 'CardTimes',
+  data() {
+    return {
+      times: null,
+    };
+  },
+  methods: {
+    async getPedidos() {
+      const req = await fetch('http://localhost:3000/times');
+
+      const data = await req.json();
+
+      this.times = data;
+    },
+  },
+  mounted() {
+    this.getPedidos();
   },
 };
 </script>
@@ -44,18 +61,19 @@ export default {
 <style scoped>
 
 .container {
-  width: 1210px;
-  height: 49px;
+  width: 1193px;
+  height: 98px;
   margin: 0px auto;
 }
 
-.row-1-container {
+.container-table {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto; /* centraliza a div na tela */
+  flex-direction: column;
+}
+
+.row-1-container {
   background: #2B2F40;
+  margin-top: 20px;
 }
 
 img {
@@ -66,26 +84,19 @@ img {
 }
 
 .row-2-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto; /* centraliza a div na tela */
   background-color:#1C212D;
 }
 
 ul {
-  display: flex;
-  flex-wrap: wrap;
   list-style-type: none;
-  width: 100%;
   margin: 0;
   padding: 0;
 }
 
 li {
   flex: 1.5;
-  padding: 8px;
+  padding: 8px 0;
+  margin-left: 8px;
   text-align: center;
   color: aliceblue;
   font-size: 14px;
@@ -99,6 +110,7 @@ li ul {
 .celOne{
   text-align: left;
   flex: 2;
+  text-transform: uppercase;
 }
 
 .celTwo{

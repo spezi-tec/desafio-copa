@@ -1,35 +1,20 @@
 <template>
 <div class="container">
-  <div class="row-container">
-    <span>20 DE DEZEMBRO 2022</span>
-  </div>
   <div class="table-container">
-    <div class="card-container">
-      <div class="card">
-        <span>BRASIL</span>
-      </div>
-      <div class="table">
-        <ul>
-          <li>PARTIDAS</li>
-          <li>VITÓRIAS</li>
-          <ul>
-            <li>14</li>
-            <li>12</li>
-          </ul>
-        </ul>
-      </div>
+    <div class="row-container">
+      <span>20 DE DEZEMBRO 2022</span>
     </div>
-    <div class="card-container">
+    <div class="card-container" v-for="time in times" :key="time.id">
       <div class="card">
-        <span>BRASIL</span>
+        <span>{{ time.name }}</span>
       </div>
       <div class="table">
         <ul>
           <li>PARTIDAS</li>
           <li>VITÓRIAS</li>
-          <ul>
-            <li>14</li>
-            <li>12</li>
+          <ul v-for="(matchs, index) in time.match" :key="index">
+            <li>{{ matchs.matchs }}</li>
+            <li>{{ matchs.wins }}</li>
           </ul>
         </ul>
       </div>
@@ -40,8 +25,26 @@
 
 <script>
 export default {
+  name: 'CardMatch',
   setup() {
 
+  },
+  data() {
+    return {
+      times: null,
+    };
+  },
+  methods: {
+    async getPedidos() {
+      const req = await fetch('http://localhost:3000/times');
+
+      const data = await req.json();
+
+      this.times = data;
+    },
+  },
+  mounted() {
+    this.getPedidos();
   },
 };
 </script>
@@ -59,6 +62,10 @@ export default {
   width: 100%;
   height: 49px;
   background: #121219;
+}
+
+.teste {
+  flex: 2;
 }
 .table-container {
   display: flex;
@@ -116,6 +123,7 @@ span {
   color: rgba(248, 248, 248, 0.5);
   letter-spacing: 0.02em;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 </style>

@@ -5,7 +5,12 @@
     <div class="form-container">
       <form action="">
         <label>Selecione um time da sua base</label>
-        <select name="" id="" aria-placeholder="Selecione um time"></select>
+        <select v-model="selectedOption" v-on:change="emitSelectedOption">
+          <option value="">Selecione um time</option>
+          <option v-for="time in times" :key="time.id" v-bind:value="time.name">
+            {{ time.name }}
+          </option>
+        </select>
         <button @click="onClick()">SORTEAR</button>
       </form>
     </div>
@@ -15,11 +20,36 @@
 <script>
 
 export default {
+  data() {
+    return {
+      times: [],
+      selectedOption: this.value,
+    };
+  },
   methods: {
     onClick() {
       this.$emit('showLoading');
       this.$emit('close');
     },
+    async getPedidos() {
+      const req = await fetch('http://localhost:3000/times');
+
+      const data = await req.json();
+
+      this.times = data;
+    },
+    emitSelectedOption() {
+      this.$emit('updateSelectedOption', this.selectedOption);
+      console.log(this.selectedOption);
+    },
+  },
+  watch: {
+    value(newVal) {
+      this.selectedOption = newVal;
+    },
+  },
+  mounted() {
+    this.getPedidos();
   },
 };
 </script>
@@ -57,6 +87,12 @@ select {
   background: #2B2F40;
   border: 1px solid #191B25;
   border-radius: 4px;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+option {
+  text-transform: uppercase;
 }
 
 .overlay {

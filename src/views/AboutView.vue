@@ -2,11 +2,14 @@
   <div class="about">
     <div class="raffle">
       <h1>PRÓXIMA PARTIDA</h1>
-      <button @click="show()">SORTEAR UMA PARTIDA</button>
+      <button @click="show()"><fa icon="flag"/> SORTEAR UMA PARTIDA</button>
     </div>
     <div class="overlay" v-if="showForm"></div>
     <div class="popUp" v-if="showForm">
-      <SelectTime @close="close" @showLoading="showLoading"/>
+      <SelectTime @close="close"
+      @showLoading="showLoading"
+      v-bind:value="selectedOption"
+      v-on:updateSelectedOption="updateSelectedOption"/>
     </div>
     <div class="overlay" v-if="loading"></div>
     <div class="popUp" v-if="loading">
@@ -14,7 +17,7 @@
     </div>
     <div class="overlay" v-if="complete"></div>
     <div class="popUp" v-if="complete">
-      <SetMatch />
+      <SetMatch v-bind:selectedOption="selectedOption" />
     </div>
 
     <CardMatch />
@@ -34,6 +37,7 @@ export default {
       showForm: false,
       loading: false,
       complete: false,
+      selectedOption: null,
     };
   },
   setup() {
@@ -58,6 +62,9 @@ export default {
     completeLoading() {
       this.complete = true;
     },
+    updateSelectedOption(newVal) {
+      this.selectedOption = newVal;
+    },
   },
 };
 </script>
@@ -79,7 +86,11 @@ export default {
 
 .raffle button {
   background-color: #F5760F;
-  padding: 8px 16px;
+  width: 242px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
   color: #F8F8F8;
 }
 

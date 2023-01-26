@@ -5,29 +5,16 @@
     <h3>SUA PRÓXIMA PARTIDA SERA EM:</h3>
     <span>20 DE DEZEMBRO 2022</span>
   </div>
-  <div class="table-container">
-    <div>
+  <div class="table-container" >
+    <div v-for="time in times" :key="time.id">
       <div class="card">
-        <span>BRASIL</span>
+        <span>{{ time. name }}</span>
       </div>
       <div class="table">
-        <ul>
+        <ul v-for="(matchs, index) in time.match" :key="index">
           <li>VITÓRIAS</li>
           <ul>
-            <li>12</li>
-          </ul>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <span>BRASIL</span>
-      </div>
-      <div class="table">
-        <ul>
-          <li>VITÓRIAS</li>
-          <ul>
-            <li>12</li>
+            <li>{{ matchs.wins }}</li>
           </ul>
         </ul>
       </div>
@@ -39,8 +26,32 @@
 
 <script>
 export default {
-  setup() {
+  data() {
+    return {
+      times: null,
+    };
+  },
+  methods: {
+    onClick() {
+      this.$emit('showLoading');
+      this.$emit('close');
+    },
+    async getPedidos() {
+      try {
+        const req = await fetch('http://localhost:3000/times');
+        const data = await req.json();
 
+        // mistura os objetos usando sort
+        const shuffledData = data.sort(() => Math.random() - 0.5);
+        // pega os dois primeiros objetos usando slice
+        this.times = shuffledData.slice(0, 2);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  mounted() {
+    this.getPedidos();
   },
 };
 </script>
@@ -108,6 +119,7 @@ span {
   color: rgba(248, 248, 248, 0.5);
   letter-spacing: 0.02em;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 button {
