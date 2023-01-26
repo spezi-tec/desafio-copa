@@ -22,6 +22,12 @@ body {
 }
 #app {
   font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
   text-align: center;
   color: #2c3e50;
   height: 1024px;

@@ -1,39 +1,38 @@
 <template>
 <div class="container">
-  <div class="row-container">
+  <div>x</div>
+  <div class="wrapper">
+    <h3>SUA PRÓXIMA PARTIDA SERA EM:</h3>
     <span>20 DE DEZEMBRO 2022</span>
   </div>
   <div class="table-container">
-    <div class="card-container">
+    <div>
       <div class="card">
         <span>BRASIL</span>
       </div>
       <div class="table">
         <ul>
-          <li>PARTIDAS</li>
           <li>VITÓRIAS</li>
           <ul>
-            <li>14</li>
             <li>12</li>
           </ul>
         </ul>
       </div>
     </div>
-    <div class="card-container">
+    <div>
       <div class="card">
         <span>BRASIL</span>
       </div>
       <div class="table">
         <ul>
-          <li>PARTIDAS</li>
           <li>VITÓRIAS</li>
           <ul>
-            <li>14</li>
             <li>12</li>
           </ul>
         </ul>
       </div>
     </div>
+    <button>VER PARTIDAS</button>
   </div>
 </div>
 </template>
@@ -48,33 +47,30 @@ export default {
 
 <style scoped>
 .container {
-  width: 1210px;
-  height: 49px;
-  margin: 0px auto;
+  width: 601px;
+  height: 454px;
+  background-color: #1C212D;
 }
-.row-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 49px;
-  background: #121219;
-}
-.table-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.card-container {
+.wrapper {
+  height: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.wrapper h3 {
+  color: #FFFFFF;
+}
+.table-container {
+  margin-top: 50px ;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .card {
   margin: 30px auto 0;
+  width: 264px;
   height: 49px;
-  width: 590px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,12 +79,12 @@ export default {
 
 .table {
   margin-top: 2px;
+  width: 264px;
   height: 124px;
-  width: 590px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1C212D;
+  background-color: #181D27;
 }
 
 ul {
@@ -108,14 +104,22 @@ li {
   font-size: 14px;
 }
 
-li:nth-child(1) {
-  border-right: 1px solid lightgray;
-}
-
 span {
   color: rgba(248, 248, 248, 0.5);
   letter-spacing: 0.02em;
   font-size: 14px;
 }
 
+button {
+  margin-top: 25px;
+  background: #F5760F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  width: 565px;
+  height: 45px;
+}
 </style>

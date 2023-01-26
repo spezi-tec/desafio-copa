@@ -1,6 +1,7 @@
 <template>
 <div class="container">
   <div class="row-1-container">
+    <img src="../../assets/Brasil.png" alt="">
     <ul>
       <li>
         <ul>
@@ -23,7 +24,7 @@
           <li>102</li>
           <li>88</li>
           <li>14</li>
-          <li>...</li>
+          <li id="">...</li>
         </ul>
       </li>
     </ul>
@@ -55,6 +56,13 @@ export default {
   width: 100%;
   margin: 0 auto; /* centraliza a div na tela */
   background: #2B2F40;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 5px;
 }
 
 .row-2-container {
