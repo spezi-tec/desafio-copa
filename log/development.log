@@ -1,0 +1,1423 @@
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJogadors (20230130144824)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "jogadors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "idade" integer, "selecao" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130144824"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 14:50:19.287991"], ["updated_at", "2023-01-30 14:50:19.287991"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-01-30 11:51:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 32.9ms | Allocations: 630)
+Completed 200 OK in 147ms (Views: 65.9ms | ActiveRecord: 0.0ms | Allocations: 5034)
+
+
+Started GET "/rails/info/routes" for ::1 at 2023-01-30 11:51:59 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [31 times] (Duration: 18.7ms | Allocations: 5251)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 60.1ms | Allocations: 1368)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 108.9ms | Allocations: 10318)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb (Duration: 120.0ms | Allocations: 10612)
+Completed 200 OK in 136ms (Views: 127.4ms | ActiveRecord: 0.0ms | Allocations: 12315)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-01-30 11:51:59 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/jogadors" for ::1 at 2023-01-30 11:52:38 -0300
+Processing by JogadorsController#index as HTML
+  [1m[36mJogador Load (0.3ms)[0m  [1m[34mSELECT "jogadors".* FROM "jogadors"[0m
+  ↳ app/controllers/jogadors_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 1918)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (1.5ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Dr. Emilio D'Amore"], ["idade", 0], ["selecao", "United Arab Emirates"], ["created_at", "2023-01-30 15:06:49.497559"], ["updated_at", "2023-01-30 15:06:49.497559"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (1.2ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Wilfredo Quitzon"], ["idade", 0], ["selecao", "Bulgaria"], ["created_at", "2023-01-30 15:06:49.505366"], ["updated_at", "2023-01-30 15:06:49.505366"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (1.2ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Mr. Joel Hand"], ["idade", 0], ["selecao", "South Africa"], ["created_at", "2023-01-30 15:06:49.512452"], ["updated_at", "2023-01-30 15:06:49.512452"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.9ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Coral Stokes"], ["idade", 0], ["selecao", "India"], ["created_at", "2023-01-30 15:06:49.519222"], ["updated_at", "2023-01-30 15:06:49.519222"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (1.1ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Dr. Cristi Cormier"], ["idade", 0], ["selecao", "Mayotte"], ["created_at", "2023-01-30 15:06:49.525539"], ["updated_at", "2023-01-30 15:06:49.525539"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.8ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Gertrud Torp I"], ["idade", 0], ["selecao", "Mongolia"], ["created_at", "2023-01-30 15:06:49.532165"], ["updated_at", "2023-01-30 15:06:49.532165"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.9ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Fr. Shantelle Labadie"], ["idade", 0], ["selecao", "Liberia"], ["created_at", "2023-01-30 15:06:49.538245"], ["updated_at", "2023-01-30 15:06:49.538245"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.9ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Jaye Hessel"], ["idade", 0], ["selecao", "South Georgia and the South Sandwich Islands"], ["created_at", "2023-01-30 15:06:49.544542"], ["updated_at", "2023-01-30 15:06:49.544542"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.9ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Armando Greenholt DVM"], ["idade", 0], ["selecao", "Gibraltar"], ["created_at", "2023-01-30 15:06:49.550614"], ["updated_at", "2023-01-30 15:06:49.550614"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mJogador Create (0.7ms)[0m  [1m[32mINSERT INTO "jogadors" ("nome", "idade", "selecao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["nome", "Eunice Kuhlman"], ["idade", 0], ["selecao", "Cyprus"], ["created_at", "2023-01-30 15:06:49.556681"], ["updated_at", "2023-01-30 15:06:49.556681"]]
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/dev.rake:5:in `block (3 levels) in <main>'
+Started GET "/jogadors" for ::1 at 2023-01-30 12:07:00 -0300
+Processing by JogadorsController#index as HTML
+  [1m[36mJogador Load (0.1ms)[0m  [1m[34mSELECT "jogadors".* FROM "jogadors"[0m
+  ↳ app/controllers/jogadors_controller.rb:8:in `index'
+Completed 200 OK in 64ms (Views: 63.7ms | ActiveRecord: 1.4ms | Allocations: 9462)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSelecaos (20230130151826)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "selecaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130151826"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSelecaoToJogador (20230130152545)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadors" ("id" integer NOT NULL PRIMARY KEY, "nome" varchar DEFAULT NULL, "idade" integer DEFAULT NULL, "selecao" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ajogadors" ("id","nome","idade","selecao","created_at","updated_at")
+                     SELECT "id","nome","idade","selecao","created_at","updated_at" FROM "jogadors"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "jogadors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jogadors" ("id" integer NOT NULL PRIMARY KEY, "nome" varchar DEFAULT NULL, "idade" integer DEFAULT NULL, "selecao" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "selecao_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "jogadors" ("id","nome","idade","selecao","created_at","updated_at")
+                     SELECT "id","nome","idade","selecao","created_at","updated_at" FROM "ajogadors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSelecaoToJogador (20230130152545)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadors" ("id" integer NOT NULL PRIMARY KEY, "nome" varchar DEFAULT NULL, "idade" integer DEFAULT NULL, "selecao" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ajogadors" ("id","nome","idade","selecao","created_at","updated_at")
+                     SELECT "id","nome","idade","selecao","created_at","updated_at" FROM "jogadors"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "jogadors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jogadors" ("id" integer NOT NULL PRIMARY KEY, "nome" varchar DEFAULT NULL, "idade" integer DEFAULT NULL, "selecao" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "selecao_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "jogadors" ("id","nome","idade","selecao","created_at","updated_at")
+                     SELECT "id","nome","idade","selecao","created_at","updated_at" FROM "ajogadors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230130163526)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163526"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSelecaos (20230130163554)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "selecaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163554"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230130163643)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163643"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTeamToPlayer (20230130163757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "players"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "aplayers"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163757"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 16:38:34.663293"], ["updated_at", "2023-01-30 16:38:34.663293"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230130163526)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163526"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSelecaos (20230130163554)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "selecaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163554"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230130163643)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163643"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTeamToPlayer (20230130163757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "players"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163757"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 16:39:48.405007"], ["updated_at", "2023-01-30 16:39:48.405007"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230130163526)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163526"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSelecaos (20230130163554)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "selecaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163554"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230130163643)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163643"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTeamToPlayer (20230130163757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "players"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163757"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 16:40:23.135001"], ["updated_at", "2023-01-30 16:40:23.135001"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230130163526)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163526"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230130163643)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163643"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTeamToPlayer (20230130163757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "players"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "players"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163757"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 16:41:19.953611"], ["updated_at", "2023-01-30 16:41:19.953611"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-01-30 14:08:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.1ms | Allocations: 501)
+Completed 200 OK in 30ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 3451)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:08:23 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1878)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-01-30 14:08:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:10:08 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 792)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:10:23 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 0.6ms | Allocations: 1471)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 14:11:35 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"USA", "team"=>{"country"=>"USA"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTeam Create (2.5ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "USA"], ["created_at", "2023-01-30 17:11:35.974093"], ["updated_at", "2023-01-30 17:11:35.974093"]]
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+Completed 201 Created in 95ms (Views: 1.3ms | ActiveRecord: 8.6ms | Allocations: 8484)
+
+
+Started POST "/" for 127.0.0.1 at 2023-01-30 14:13:43 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:14:02 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002895b70cec0>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 28], ["created_at", "2023-01-30 17:14:02.620820"], ["updated_at", "2023-01-30 17:14:02.620820"], ["team_id", nil]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.1ms | Allocations: 4724)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: players.team_id):
+  
+app/controllers/players_controller.rb:20:in `create'
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:14:17 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 14:14:35 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"Brazil", "team"=>{"country"=>"Brazil"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTeam Create (4.9ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "Brazil"], ["created_at", "2023-01-30 17:14:35.461800"], ["updated_at", "2023-01-30 17:14:35.461800"]]
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+Completed 201 Created in 16ms (Views: 0.6ms | ActiveRecord: 7.9ms | Allocations: 1919)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:14:42 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 968)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:15:10 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 912)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:15:36 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002895d593038>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 28], ["created_at", "2023-01-30 17:15:36.553362"], ["updated_at", "2023-01-30 17:15:36.553362"], ["team_id", nil]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 2035)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: players.team_id):
+  
+app/controllers/players_controller.rb:20:in `create'
+Started GET "/teams/2" for 127.0.0.1 at 2023-01-30 14:16:55 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 200 OK in 66ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 3938)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2023-01-30 14:17:08 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 651)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2023-01-30 14:17:12 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 543)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=3):
+  
+app/controllers/teams_controller.rb:44:in `set_team'
+Started GET "/teams/2" for 127.0.0.1 at 2023-01-30 14:17:17 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 647)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:21:34 -0300
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: team
+              ^
+):
+  
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:22:00 -0300
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: team
+              ^
+C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:4: syntax error, unexpected `end', expecting end-of-input):
+  
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:4: syntax error, unexpected `end', expecting end-of-input
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:4: syntax error, unexpected `end', expecting end-of-input
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:28:32 -0300
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: team
+              ^
+):
+  
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:29:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 11.7ms | ActiveRecord: 1.3ms | Allocations: 7552)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:29:20 -0300
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: team
+              ^
+):
+  
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:30:23 -0300
+Processing by PlayersController#index as */*
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms | Allocations: 2982)
+
+
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: team
+              ^
+):
+  
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/player.rb:2: syntax error, unexpected ':', expecting `end'
+app/controllers/players_controller.rb:6:in `index'
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:30:42 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 6.5ms | ActiveRecord: 0.8ms | Allocations: 1893)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:30:47 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002463abf5b30>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 28], ["created_at", "2023-01-30 17:30:47.406999"], ["updated_at", "2023-01-30 17:30:47.406999"], ["team_id", nil]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.6ms | Allocations: 5354)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: players.team_id):
+  
+app/controllers/players_controller.rb:20:in `create'
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:31:55 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002463a199128>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}} }[0m
+Completed 422 Unprocessable Entity in 576ms (Views: 521.9ms | ActiveRecord: 1.7ms | Allocations: 286933)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:32:04 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.8ms | Allocations: 2745)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 14:32:15 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"France", "team"=>{"country"=>"France"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTeam Create (1.5ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "France"], ["created_at", "2023-01-30 17:32:15.907479"], ["updated_at", "2023-01-30 17:32:15.907479"]]
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+Completed 201 Created in 14ms (Views: 1.5ms | ActiveRecord: 5.7ms | Allocations: 2261)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2023-01-30 14:32:23 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 1508)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:32:26 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 1042)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:32:31 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002463d155498>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>1, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>1}} }[0m
+Completed 422 Unprocessable Entity in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 716)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:32:36 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>2, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>2}}
+[31mUnpermitted parameter: :team_id. Context: { controller: PlayersController, action: create, request: #<ActionDispatch::Request:0x000002463d17cb60>, params: {"name"=>"Pulisic", "age"=>28, "team_id"=>2, "controller"=>"players", "action"=>"create", "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>2}} }[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 646)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:36:22 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team"=>2, "player"=>{"name"=>"Pulisic", "age"=>28}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 557)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:36:23 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team"=>2, "player"=>{"name"=>"Pulisic", "age"=>28}}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 558)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:40:19 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team"=>2, "player"=>{"name"=>"Pulisic", "age"=>28}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 2681)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:40:22 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team"=>2, "player"=>{"name"=>"Pulisic", "age"=>28}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 602)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:40:52 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team"=>2, "player"=>{"name"=>"Pulisic", "age"=>28}}
+Completed 422 Unprocessable Entity in 431ms (Views: 409.7ms | ActiveRecord: 0.8ms | Allocations: 290913)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 14:41:18 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"Canada", "team"=>{"country"=>"Canada"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTeam Create (1.1ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "Canada"], ["created_at", "2023-01-30 17:41:18.877557"], ["updated_at", "2023-01-30 17:41:18.877557"]]
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:20:in `create'
+Completed 201 Created in 17ms (Views: 1.4ms | ActiveRecord: 5.1ms | Allocations: 4500)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:41:23 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1527)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:41:27 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 788)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:41:38 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>2, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 28], ["created_at", "2023-01-30 17:41:38.159062"], ["updated_at", "2023-01-30 17:41:38.159062"], ["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 8.3ms | Allocations: 5282)
+
+
+  
+TypeError (#<Team id: 2, country: "Brazil", created_at: "2023-01-30 17:14:35.461800000 +0000", updated_at: "2023-01-30 17:14:35.461800000 +0000"> is not a symbol nor a string):
+  
+app/models/player.rb:4:in `as_json'
+app/controllers/players_controller.rb:21:in `create'
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:42:11 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>28, "team_id"=>2, "player"=>{"name"=>"Pulisic", "age"=>28, "team_id"=>2}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (4.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 28], ["created_at", "2023-01-30 17:42:12.578764"], ["updated_at", "2023-01-30 17:42:12.578764"], ["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 201 Created in 25ms (Views: 0.6ms | ActiveRecord: 9.7ms | Allocations: 7005)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:42:19 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 1077)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 14:42:44 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Neymar", "age"=>28, "team_id"=>2, "player"=>{"name"=>"Neymar", "age"=>28, "team_id"=>2}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mPlayer Create (5.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Neymar"], ["age", 28], ["created_at", "2023-01-30 17:42:44.652297"], ["updated_at", "2023-01-30 17:42:44.652297"], ["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:20:in `create'
+Completed 201 Created in 20ms (Views: 0.7ms | ActiveRecord: 10.2ms | Allocations: 2914)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-01-30 14:42:47 -0300
+Processing by PlayersController#index as */*
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/players_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1066)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 14:51:22 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.5ms | Allocations: 1640)
+
+
+Started GET "//teams/matches" for 127.0.0.1 at 2023-01-30 15:08:10 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"matches"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `set_team'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.7ms | Allocations: 1848)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=matches):
+  
+app/controllers/teams_controller.rb:44:in `set_team'
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:08:50 -0300
+  
+AbstractController::ActionNotFound (The action 'sample' could not be found for TeamsController):
+  
+actionpack (7.0.4.2) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.2) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.2) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.2) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.2) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.2) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:09:11 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.4ms | Allocations: 5427)
+
+
+  
+NameError (undefined local variable or method `teams' for #<TeamsController:0x000000000183d0>
+
+    team1, team2 = teams.sample(2)
+                   ^^^^^
+Did you mean?  team1
+               team2):
+  
+app/controllers/teams_controller.rb:13:in `sample'
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:09:42 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 11ms (Views: 2.2ms | ActiveRecord: 1.1ms | Allocations: 3353)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:20:21 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 12ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 2974)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:20:24 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 859)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:20:25 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:20:27 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.0ms | Allocations: 843)
+
+
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:32:14 -0300
+  
+ActionController::RoutingError (uninitialized constant Teams
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:33:20 -0300
+  
+SyntaxError (C:/Users/felip/desafio-spezi/desafio-copa-felipe-cavalcante/desafio/config/routes.rb:11: syntax error, unexpected `end', expecting end-of-input):
+  
+config/routes.rb:11: syntax error, unexpected `end', expecting end-of-input
+config/routes.rb:11: syntax error, unexpected `end', expecting end-of-input
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:33:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/teams/players/2"):
+  
+Started GET "/rails/info/routes" for ::1 at 2023-01-30 15:34:09 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [39 times] (Duration: 20.1ms | Allocations: 6442)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 56.7ms | Allocations: 1146)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 116.6ms | Allocations: 11730)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb (Duration: 124.7ms | Allocations: 12032)
+Completed 200 OK in 246ms (Views: 157.8ms | Allocations: 15325)
+
+
+Started GET "/rails/info/routes" for ::1 at 2023-01-30 15:34:53 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [39 times] (Duration: 10.2ms | Allocations: 6258)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.0ms | Allocations: 838)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 20.0ms | Allocations: 10634)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb (Duration: 21.9ms | Allocations: 10892)
+Completed 200 OK in 28ms (Views: 25.6ms | Allocations: 11722)
+
+
+Started GET "/rails/info/routes" for ::1 at 2023-01-30 15:35:31 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [39 times] (Duration: 7.5ms | Allocations: 6004)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.5ms | Allocations: 190)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 11.9ms | Allocations: 9429)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb (Duration: 13.3ms | Allocations: 9510)
+Completed 200 OK in 15ms (Views: 14.8ms | Allocations: 9851)
+
+
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:35:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/teams/players/2"):
+  
+Started GET "/rails/info/routes" for ::1 at 2023-01-30 15:36:17 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [39 times] (Duration: 9.5ms | Allocations: 6004)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.3ms | Allocations: 190)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 13.0ms | Allocations: 9435)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/layouts/application.html.erb (Duration: 14.1ms | Allocations: 9516)
+Completed 200 OK in 16ms (Views: 15.4ms | Allocations: 9853)
+
+
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:36:24 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"2"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:20:in `players_by_team'
+Completed 200 OK in 38ms (Views: 7.5ms | ActiveRecord: 1.6ms | Allocations: 4451)
+
+
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230130163526)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163526"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230130163643)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163643"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTeamToPlayer (20230130163757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "players"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at")
+                     SELECT "id","name","age","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "team_id" integer NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","created_at","updated_at","team_id")
+                     SELECT "id","name","age","created_at","updated_at","team_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130163757"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-30 18:37:22.933460"], ["updated_at", "2023-01-30 18:37:22.933460"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 15:38:00 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"Canada", "team"=>{"country"=>"Canada"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTeam Create (1.1ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "Canada"], ["created_at", "2023-01-30 18:38:00.886390"], ["updated_at", "2023-01-30 18:38:00.886390"]]
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+Completed 201 Created in 82ms (Views: 0.7ms | ActiveRecord: 5.7ms | Allocations: 8564)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 15:38:09 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"USA", "team"=>{"country"=>"USA"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTeam Create (3.8ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "USA"], ["created_at", "2023-01-30 18:38:10.050790"], ["updated_at", "2023-01-30 18:38:10.050790"]]
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 7.8ms | Allocations: 1966)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 15:38:23 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"Brazil", "team"=>{"country"=>"Brazil"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTeam Create (3.8ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "Brazil"], ["created_at", "2023-01-30 18:38:23.956759"], ["updated_at", "2023-01-30 18:38:23.956759"]]
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+Completed 201 Created in 17ms (Views: 0.6ms | ActiveRecord: 9.4ms | Allocations: 1929)
+
+
+Started POST "/teams" for 127.0.0.1 at 2023-01-30 15:38:31 -0300
+Processing by TeamsController#create as */*
+  Parameters: {"country"=>"France", "team"=>{"country"=>"France"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTeam Create (5.2ms)[0m  [1m[32mINSERT INTO "teams" ("country", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["country", "France"], ["created_at", "2023-01-30 18:38:31.181231"], ["updated_at", "2023-01-30 18:38:31.181231"]]
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:27:in `create'
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 9.2ms | Allocations: 1929)
+
+
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 15:39:30 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 1528)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 15:39:43 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Neymar", "age"=>30, "team_id"=>3, "player"=>{"name"=>"Neymar", "age"=>30, "team_id"=>3}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mPlayer Create (1.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Neymar"], ["age", 30], ["created_at", "2023-01-30 18:39:44.024093"], ["updated_at", "2023-01-30 18:39:44.024093"], ["team_id", 3]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+Completed 201 Created in 87ms (Views: 2.6ms | ActiveRecord: 6.2ms | Allocations: 7885)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 15:39:55 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Pulisic", "age"=>30, "team_id"=>2, "player"=>{"name"=>"Pulisic", "age"=>30, "team_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mPlayer Create (3.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pulisic"], ["age", 30], ["created_at", "2023-01-30 18:39:55.688583"], ["updated_at", "2023-01-30 18:39:55.688583"], ["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+Completed 201 Created in 19ms (Views: 1.2ms | ActiveRecord: 7.0ms | Allocations: 2935)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 15:40:25 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Afonso Davies", "age"=>30, "team_id"=>1, "player"=>{"name"=>"Afonso Davies", "age"=>30, "team_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mPlayer Create (3.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Afonso Davies"], ["age", 30], ["created_at", "2023-01-30 18:40:25.802887"], ["updated_at", "2023-01-30 18:40:25.802887"], ["team_id", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+Completed 201 Created in 22ms (Views: 1.8ms | ActiveRecord: 7.7ms | Allocations: 2889)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 15:40:48 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Mbappe", "age"=>30, "team_id"=>4, "player"=>{"name"=>"Mbappe", "age"=>30, "team_id"=>4}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mbappe"], ["age", 30], ["created_at", "2023-01-30 18:40:48.473183"], ["updated_at", "2023-01-30 18:40:48.473183"], ["team_id", 4]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+Completed 201 Created in 17ms (Views: 1.8ms | ActiveRecord: 5.5ms | Allocations: 2889)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-01-30 15:41:01 -0300
+Processing by PlayersController#create as */*
+  Parameters: {"name"=>"Giroud", "age"=>30, "team_id"=>4, "player"=>{"name"=>"Giroud", "age"=>30, "team_id"=>4}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mPlayer Create (1.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "created_at", "updated_at", "team_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Giroud"], ["age", 30], ["created_at", "2023-01-30 18:41:01.788419"], ["updated_at", "2023-01-30 18:41:01.788419"], ["team_id", 4]]
+  ↳ app/controllers/players_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `create'
+Completed 201 Created in 20ms (Views: 2.6ms | ActiveRecord: 5.7ms | Allocations: 2893)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2023-01-30 15:41:06 -0300
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:51:in `set_team'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 795)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:10 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 851)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:11 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:12 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:14 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:15 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:16 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:16 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:16 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:17 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:18 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:19 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:20 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:21 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:22 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:23 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 15:41:24 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "/teams/players/2" for 127.0.0.1 at 2023-01-30 15:41:45 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/players_controller.rb:20:in `players_by_team'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1050)
+
+
+Started GET "/teams/players/3" for 127.0.0.1 at 2023-01-30 15:42:00 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 3]]
+  ↳ app/controllers/players_controller.rb:20:in `players_by_team'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 889)
+
+
+Started GET "/teams/players/4" for 127.0.0.1 at 2023-01-30 15:42:06 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"4"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 4]]
+  ↳ app/controllers/players_controller.rb:20:in `players_by_team'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 1023)
+
+
+Started GET "/teams/players/4" for 127.0.0.1 at 2023-01-30 15:43:12 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"4"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/players_controller.rb:21:in `players_by_team'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 4]]
+  ↳ app/controllers/players_controller.rb:21:in `players_by_team'
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 3.8ms | Allocations: 6950)
+
+
+Started GET "/teams/players/4" for 127.0.0.1 at 2023-01-30 15:43:39 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"4"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.4ms | Allocations: 7364)
+
+
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `country' for #<ActiveRecord::Relation [#<Team id: 4, country: "France", created_at: "2023-01-30 18:38:31.181231000 +0000", updated_at: "2023-01-30 18:38:31.181231000 +0000">]>
+Did you mean?  count):
+  
+app/controllers/players_controller.rb:21:in `players_by_team'
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+Started GET "/teams" for 127.0.0.1 at 2023-01-30 15:46:12 -0300
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 1.0ms | Allocations: 3645)
+
+
+Started GET "/teams/players/4" for 127.0.0.1 at 2023-01-30 15:46:20 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"4"}
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 3916)
+
+
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `country' for #<ActiveRecord::Relation [#<Team id: 4, country: "France", created_at: "2023-01-30 18:38:31.181231000 +0000", updated_at: "2023-01-30 18:38:31.181231000 +0000">]>
+Did you mean?  count):
+  
+app/controllers/players_controller.rb:18:in `players_by_team'
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", 4], ["LIMIT", 11]]
+Started GET "/teams/players/4" for 127.0.0.1 at 2023-01-30 15:46:55 -0300
+Processing by PlayersController#players_by_team as */*
+  Parameters: {"team_id"=>"4"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/players_controller.rb:21:in `players_by_team'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = ?[0m  [["team_id", 4]]
+  ↳ app/controllers/players_controller.rb:21:in `players_by_team'
+Completed 200 OK in 34ms (Views: 15.6ms | ActiveRecord: 4.8ms | Allocations: 6937)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMatches (20230130185741)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "matches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "time_a_id" integer, "time_b_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230130185741"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 16:00:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.3ms | Allocations: 5053)
+
+
+  
+NameError (undefined local variable or method `time_a' for #<TeamsController:0x0000000001d150>
+
+    Match.create(time_a_id: time_a.id, time_b_id: time_b.id)
+                            ^^^^^^):
+  
+app/controllers/teams_controller.rb:14:in `sample'
+Started GET "//teams/matches/sample" for 127.0.0.1 at 2023-01-30 16:03:26 -0300
+Processing by TeamsController#sample as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:12:in `sample'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:14:in `sample'
+  [1m[36mMatch Create (1.7ms)[0m  [1m[32mINSERT INTO "matches" ("time_a_id", "time_b_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time_a_id", 4], ["time_b_id", 2], ["created_at", "2023-01-30 19:03:28.368038"], ["updated_at", "2023-01-30 19:03:28.368038"]]
+  ↳ app/controllers/teams_controller.rb:14:in `sample'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:14:in `sample'
+Completed 200 OK in 48ms (Views: 2.8ms | ActiveRecord: 11.8ms | Allocations: 7984)
+
+
