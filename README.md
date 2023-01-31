@@ -20,3 +20,28 @@ Segue abaixo link com as referências do teste ser implementado.
 
 ## Importante
 Se surgir qualquer dúvida durante o desenvolvimento, não hesite em perguntar! nosso time vai estar pronto a lhe auxiliar 😊
+
+## Estrutura do projeto 
+  Este projeto foi construido utilizando o padrão REST, tirando proveito do modelo RoR api. Os métodos de players estão em PlayersController. Já os de teams + matches estão em TeamsController uma vez  que vi como desnecessária a criação de novo vontrole apenas para o método de sorteio das partidas, sendo essa uma funcionalidade muito atrelada à entidade teams.
+
+## Rotas de Players
+
+  As rotas de players estao seguindo padrão rest e tem seus métodos concentrados em "/players"
+  
+  Como fazer um post em "/players"? Segue padrão de JSON a ser utilizado: {
+	"name":"Pulisic",
+	"age": 27,
+	"team_id": 3
+}
+  
+  
+## Rotas de Teams 
+  As rotas de teams também seguem o padrão rest e seu crud está disponível "/teams". Na rota "/teams/players/:team_id" é possível verificar os jogadores de cada time. Já na rota "/teams/matches/sample" é feita o sorteio das partidas e a armazenagem no banco de dados na tabela Matches.
+  
+  Como fazer um post para "/teams"? segue padrão de JSON a ser utilizado: {
+	"country": "USA"
+}
+
+  Já a rota "/teams/matches/sample" é um get sem necessidade de envio de parâmetros, por conta de se tratar de um sorteio.
+  
+  
